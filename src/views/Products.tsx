@@ -18,7 +18,8 @@ export default function Products() {
   // Este hook de react-router permite recuperar los datos retornados del loader
   const products = useLoaderData() as Product[] /* Le colocamos as, para que lo infiera como el producto que definimos   */
 
-  return (
+  if(!products) return 'No hay productos'
+  if(products) return (
     <>
       <div className="flex justify-between">
         <h2 className="text-4xl font-black text-slate-500">Productos</h2>
